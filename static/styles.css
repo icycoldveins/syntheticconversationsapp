@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  /* Add more styling as needed */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  /* Add more styling as needed */
+}
+
+.conversation {
+  background-color: white;
+  padding: 20px;
+  /* Add more styling for the conversation bubbles */
+}
+/* Add this to your main CSS file or within a <style> tag in banner.html */
