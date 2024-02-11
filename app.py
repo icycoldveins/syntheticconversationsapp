@@ -78,7 +78,7 @@ def generate_dialogue():
 
     except Exception as e:
         # Log error if dialogue generation fails
-        logger.error(f"Failed to generate dialogue: {e}")
+        # logger.error(f"Failed to generate dialogue: {e}")
         return jsonify({'error': 'Failed to generate dialogue, please check server logs for more details'}), 500
 
 
