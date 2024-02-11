@@ -12,23 +12,23 @@ load_dotenv()
 # Access the OpenAI API key from the environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Define a logger
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)  # Set the logging level to DEBUG
+# # Define a logger
+# logger = logging.getLogger(__name__)
+# logger.setLevel(logging.DEBUG)  # Set the logging level to DEBUG
 
-# Create a file handler and set the logging level to DEBUG
-file_handler = logging.FileHandler('flask.log')
-file_handler.setLevel(logging.DEBUG)
+# # Create a file handler and set the logging level to DEBUG
+# file_handler = logging.FileHandler('flask.log')
+# file_handler.setLevel(logging.DEBUG)
 
-# Create a formatter
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# # Create a formatter
+# formatter = logging.Formatter(
+#     '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-# Set the formatter for the file handler
-file_handler.setFormatter(formatter)
+# # Set the formatter for the file handler
+# file_handler.setFormatter(formatter)
 
-# Add the file handler to the logger
-logger.addHandler(file_handler)
+# # Add the file handler to the logger
+# logger.addHandler(file_handler)
 
 
 @app.route('/')
@@ -55,7 +55,7 @@ def generate_dialogue():
         prompt = (f"Let's have a Discussion about '{title}'. The main points are: '{content}'.\n"
                   "WE WANT TO ONLY HAVE ONE EXCHANGE BETWEEN THE TEACHER AND STUDENT MEANING ONLY ONE QUESTION AND ONE ANSWER"
                   "Imagine we're in a classroom setting. I'll be the teacher asking one question to deepen our understanding, and you'll respond as a student with your single insight.\n"
-                  "Here's how our conversation will go:\n"
+                  "Here's how our conversation will ALWAYS NO MATTER WHAT!!! go:\n"
                   "Teacher: [asks a question]\n"
                   "Student: [provides an answer]\n"
                   f"Teacher: {previousDialogues['Teacher']}\n"
