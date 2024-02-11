@@ -1,5 +1,5 @@
 # generate-synthetic-conversation-app
-
+![alt text](image.png)
 This repository contains code for a Synthetic Conversation App. Follow the steps below to get started:
 
 1. Clone the repository:

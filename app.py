@@ -60,7 +60,7 @@ def generate_dialogue():
                   "Student: [provides an answer]\n"
                   f"Teacher: {previousDialogues['Teacher']}\n"
                   f"Student: {previousDialogues['Student']}")
-        app.logger.info(f"Prompt: {prompt}")
+        # app.logger.info(f"Prompt: {prompt}")
 
         response = openai.completions.create(
             model="gpt-3.5-turbo-instruct",
