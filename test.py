@@ -1,37 +1,30 @@
-import os
-from openai import OpenAI
+import openai
 from dotenv import load_dotenv
+import os
 
-# Load variables from .env into environment
+# Load environment variables from .env
 load_dotenv()
 
+# Access the OpenAI API key from the environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def test_api_key(api_key):
+
+def generate_completion(prompt):
     try:
-        # Instantiate the OpenAI client with your API key
-        client = OpenAI(api_key=api_key)
+        response = openai.completions.create(
+        model="gpt-3.5-turbo-instruct",
+        prompt=prompt,
+        max_tokens=100,  # Reduced max_tokens to encourage brevity
+        temperature=0.5  # Adjusting temperature for more predictable outputs
+    )
+        return response.choices[0].text.strip()
 
-        # Test the API key by making a simple request
-        response = client.chat.completions.create(
-            model="text-davinci-003",
-            messages=[{"role": "user", "content": "Hello, world!"}]
-        )
-
-        # Check if the response is successful
-        if response.status == 200:
-            print("API key test successful!")
-        else:
-            print(f"API key test failed with status code: {response.status}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"Error generating completion: {e}")
 
 
+# Example usage
 if __name__ == "__main__":
-    # Get the API key from environment variables
-    api_key = os.environ.get("OPENAI_API_KEY")
-
-    if api_key is None:
-        print("API key not found in environment variables.")
-    else:
-        # Test the API key
-        test_api_key(api_key)
+    prompt = "Once upon a time,"
+    completion = generate_completion(prompt)
+    print("Generated completion:", completion)
